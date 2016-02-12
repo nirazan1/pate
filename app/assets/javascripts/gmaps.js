@@ -153,5 +153,5 @@ $(document).ready(function() {
   if( $('#gmaps-canvas').length  ) {
     gmaps_init();
     autocomplete_init();
-  }; 
+  };
 });

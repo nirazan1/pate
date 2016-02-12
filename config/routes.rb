@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'feeds/index'
+  devise_for :users, :controllers => {:registrations => "registrations"}
   root to: 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

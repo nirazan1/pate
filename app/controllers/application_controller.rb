@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << [:first_name, :middle_name, :last_name, :location, :username]
     devise_parameter_sanitizer.for(:account_update) << [:first_name, :middle_name, :last_name, :location, :username]
   end
+
+  def after_sign_up_path_for(resource)
+    feeds_index_path
+  end
+
+  def after_sign_in_path_for(resource)
+    feeds_index_path
+  end
 end

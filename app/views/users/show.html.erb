@@ -1,0 +1,33 @@
+<div class="col-md-12">
+  <div>
+    <%= link_to :back do  %>
+        <i class="fa fa-long-arrow-left fa-2x"></i>
+    <% end %>
+  </div>
+  <br>
+
+  <div class="alert alert-info" role="alert">
+    <h2>
+      <%= @user.full_name.upcase %> <%= link_to "", edit_user_registration_path, :title => "Edit Profile", :class => "fa fa-pencil-square-o" %>
+    </h2>
+
+    <div>
+      <div class="fa fa-user"> <%= "Member Since "+(@user.created_at.to_formatted_s(:long_ordinal))%></div>
+    </div>
+
+    <div>
+        <div class="fa fa-map-marker"> <%= @user.location %></div>
+    </div>
+
+    <br><br>
+    <div>
+      <% unless @user.info.nil? %>
+          <h4>
+            <%= simple_format(@user.info) %>
+          </h4>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

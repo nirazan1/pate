@@ -22,15 +22,15 @@
         <span class="icon-bar"></span>
       </button>
       <% if user_signed_in? %>
-        <a class="navbar-brand" href="/feeds/index"><i class="fa fa-lg fa-heartbeat">Demo</i> </a>
+        <a class="navbar-brand" href="/feeds/index"><i class="fa fa-lg fa-heartbeat fa-spin"></i>Demo </a>
       <% else %>
-          <a class="navbar-brand" href="/"><i class="fa fa-lg fa-heartbeat">Demo</i> </a>
+          <a class="navbar-brand" href="/"><i class="fa fa-lg fa-heartbeat fa-spin"></i>Demo </a>
       <% end %>
           </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-            <li><%= link_to current_user.first_name+" "+current_user.last_name, edit_user_registration_path, :title => "Edit Profile" %></li>
+            <li><%= link_to current_user.first_name+" "+current_user.last_name, users_show_path(current_user.id), :title => "Profile" %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
         <% else %>
             <li>
@@ -62,6 +62,7 @@
 
 <div class="container">
   <h1><%= yield :header %></h1>
+  <br><br><br><br>
   <%= yield %>
 </div>
 <div class="container">

@@ -1,9 +1,5 @@
-<!-- google maps -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
-<!-- jquery -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<!-- jquery UI -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
     <div class="form-group">
@@ -20,6 +16,10 @@
 
     <div class="form-group">
       <%= f.text_field :username, class: 'form-control', placeholder: " Enter Username (Required)", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%=   f.country_select "country",{ include_blank: 'Select a country' }, {class: "form-control", id: "country"} %>
     </div>
 
     <div class="form-group">
@@ -54,4 +54,5 @@
     </div>
 <% end %>
 <br>
+
 

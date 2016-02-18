@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :feeds
+
 
   def full_name
     [self.first_name, self.middle_name, self.last_name].join(" ")
@@ -27,5 +29,4 @@ class User < ActiveRecord::Base
     end
     @user.save
   end
-
 end

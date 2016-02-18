@@ -1,0 +1,51 @@
+<div class="col-md-6">
+    <div>
+      <%= link_to :back do  %>
+          <i class="fa fa-long-arrow-left fa-2x"></i>
+      <% end %>
+    </div>
+  <br>
+  <div class="bs-component">
+    <div class="alert alert-dismissible alert-info">
+    <p>
+      <%#image_tag(@feed.user.avatar.url, :class=> "img-circle", size: "60") %>
+    </p>
+    <p>
+      <%= link_to @feed.user.username, users_show_path(@feed.user_id) %>: <%= @feed.title %>
+      <p>
+        <%= @feed.description %>
+      </p>
+    </p>
+
+
+    <h5>
+      Created
+      <%= time_ago_in_words(@feed.created_at)+" ago" %>
+    </h5>
+
+    <h6>
+      Last Updated
+      <%= time_ago_in_words(@feed.updated_at)+" ago" %>
+    </h6>
+
+
+    </div>
+  </div>
+
+
+
+</div>
+<div class="col-md-6">
+  <br>
+  <br>
+  <div class="fixed-element-right">
+      <div class="bs-component">
+        <div class="alert alert-dismissible alert-info">
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

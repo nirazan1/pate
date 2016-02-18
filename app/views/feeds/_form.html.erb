@@ -1,0 +1,24 @@
+<%= form_for @feed, remote: true, :html => {:required => true} do |f| %>
+    <div >
+      <%= f.text_field :title,:class=> "form-control feed_content",:placeholder=> "Title!", :required => "required",:maxlength=>"80" %>
+      <%= f.text_area :description,:class=> "form-control feed_content",:placeholder=> "Description Goes Here ", :required => "required" %>
+      <p class="pull-right"><i class="fa fa-lg fa-plus-square"></i> Pin a Pet
+        &emsp;<i class="fa fa-camera"></i> Add a Picture
+      </p>
+
+      <%= f.submit "Post It !", class: "btn btn-sm btn-success"%>
+    </div>
+    <% if @feed.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@feed.errors.count, "error") %> prohibited
+            this feed from being saved:
+          </h2>
+          <ul>
+            <% @feed.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+<% end %>

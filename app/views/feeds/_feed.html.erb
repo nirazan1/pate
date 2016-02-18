@@ -1,0 +1,34 @@
+
+  <div class="bs-component">
+    <div class="alert alert-info" id="feed<%= feed.id%>">
+      <p><%# image_tag(feed.user.avatar.url, :class=> "img-circle", size: "40") %>
+        <%= link_to feed.title, feed %></p>
+      <h6><strong><%= link_to feed.user.username.capitalize, users_show_path(feed.user_id) %></strong> <%= time_ago_in_words(feed.updated_at)+" ago."%> </h6>
+      <p><%= simple_format truncate( feed.description, :length => 150, omission: '... (more)' )  %></p>
+    </div>
+  </div>
+
+<%= form_for(feed, :method => :put, remote: true) do |f| %>
+    <div class="modal fade" id="myupdatefeed_<%= feed.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Edit</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="field">
+              <%= f.label :Feed %>
+              <%= f.text_field :title, class: "form-control"%>
+              <%= f.text_area :description, class: "form-control"%>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
+            <%= submit_tag "Update", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

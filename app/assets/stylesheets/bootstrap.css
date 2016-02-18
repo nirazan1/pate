@@ -6958,3 +6958,7 @@ button.close {
 .panel-info .panel-title {
     color: #fff;
 }
+
+.loginform {
+    width: 500px;
+}

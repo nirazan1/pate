@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'pets/index'
+
+  get 'pets/show'
+
   get 'users/show'
 
   get 'feeds/index'
@@ -11,6 +15,13 @@ Rails.application.routes.draw do
     devise_scope :user do
       get "/" => "welcome#index"
     end
+  end
+
+  resources :feeds do
+
+  end
+  resources :pets do
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

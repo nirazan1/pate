@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216090253) do
+ActiveRecord::Schema.define(version: 20160217093635) do
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "feeds", ["user_id"], name: "index_feeds_on_user_id"
+
+  create_table "pets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "breed"
+    t.string   "sex"
+    t.integer  "age"
+    t.text     "info"
+    t.integer  "user_id"
+    t.integer  "feed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pets", ["feed_id"], name: "index_pets_on_feed_id"
+  add_index "pets", ["user_id"], name: "index_pets_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

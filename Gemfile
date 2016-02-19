@@ -58,3 +58,7 @@ gem 'bootstrap'
 gem 'geocoder'
 gem "font-awesome-rails"
 gem 'country_select', github: 'stefanpenner/country_select'
+
+
+gem 'twilio-ruby'
+gem 'envyable'

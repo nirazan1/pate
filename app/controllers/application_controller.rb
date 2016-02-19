@@ -18,4 +18,17 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     feeds_index_path
   end
+
+  def signed_in?
+    current_user.present?
+  end
+  helper_method :signed_in?
+
+  protected
+
+  def authenticate!
+    redirect_to new_session_path and return unless signed_in?
+  end
+
+
 end

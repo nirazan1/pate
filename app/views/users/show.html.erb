@@ -32,9 +32,11 @@
 
   </div>
 
-  <div class="col-md-6">
-    Message
-    <div id="messages"></div>
-    <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
-  </div>
+  <% if current_user.present? %>
+      <div class="col-md-6">
+        Message
+        <div id="messages"></div>
+        <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
+      </div>
+  <% end %>
 </div>
